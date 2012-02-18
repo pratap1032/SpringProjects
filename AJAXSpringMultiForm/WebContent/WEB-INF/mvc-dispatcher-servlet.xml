@@ -2,9 +2,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-
-	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
-    
+	<!-- The following bean class is using for creating auto name for the controller  -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" /> -->
+    <!--   -->
     <bean class="com.mkyong.common.controller.CustomerController">
     	<property name="methodNameResolver">
 			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver">
