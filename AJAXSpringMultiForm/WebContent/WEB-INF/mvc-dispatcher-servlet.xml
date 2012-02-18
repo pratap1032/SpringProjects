@@ -3,25 +3,30 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
-    
-    <bean  class="com.sample.controller.IndustryCustomerController">
-    	<property name="methodNameResolver">
-			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver">
+	<!--The following bean declaration is used to create auto name for industrycustomer 
+		name for the IndustryCustomerController -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/> -->
+
+	<!-- <bean class="com.sample.controller.IndustryCustomerController"> -->
+	<!--Creating custom name for the Controller -->
+	<bean name="/industrycustomer/*.htm" class="com.sample.controller.IndustryCustomerController">
+		<property name="methodNameResolver">
+			<bean
+				class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver">
 				<property name="prefix" value="test" />
 				<property name="suffix" value="Customer" />
 			</bean>
 		</property>
-    </bean>
-	
+	</bean>
+
 	<bean id="viewResolver"
-      class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-         <property name="prefix">
-             <value>/WEB-INF/pages/</value>
-          </property>
-         <property name="suffix">
-            <value>.jsp</value>
-         </property>
-    </bean>
-	
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
 </beans>
